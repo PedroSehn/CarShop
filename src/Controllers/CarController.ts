@@ -9,6 +9,17 @@ class CarController {
     const result = await this._service.createCar(data);
     return res.status(201).json(result);
   };
+
+  public findAll = async (_rec: Request, res: Response) => {
+    const result = await this._service.findAll();
+    return res.status(200).json(result);
+  };
+
+  public findById = async (rec: Request, res: Response) => {
+    const { id } = rec.params;
+    const result = await this._service.findById(id);
+    return res.status(200).json(result);
+  };
 }
 
 export default CarController;

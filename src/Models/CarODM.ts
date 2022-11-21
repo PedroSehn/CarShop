@@ -15,11 +15,23 @@ class CarODM {
       doorsQty: { type: Number, required: true },
       seatsQty: { type: Number, required: true },
     });
+
     this._model = models.Car || model('Car', this._schema);
   }
 
   public async create(object: ICar): Promise<ICar> {
     return this._model.create({ ...object });
+  }
+
+  public async getAll(): Promise<ICar[]> {
+    const result = await this._model.find();
+    console.log(result);
+    return result;
+  }
+
+  public async getById(id: string): Promise<ICar | null > {
+    const result = await this._model.findOne({ _id: id });
+    return result;
   }
 }
 
