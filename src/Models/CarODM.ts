@@ -24,8 +24,7 @@ class CarODM {
   }
 
   public async getAll(): Promise<ICar[]> {
-    const result = await this._model.find();
-    console.log(result);
+    const result = this._model.find();
     return result;
   }
 

@@ -10,13 +10,16 @@ class CarService {
     return this.CarDom(result);
   };
 
-  public findAll = async (): Promise<ICar[]> => {
-    const result = await new CarODM().getAll();
+  public findAll = async (): Promise<Car[]> => {
+    const response = await new CarODM().getAll();
+    const result = response.map((car) => this.CarDom(car));
     return result;
   };
 
-  public findById = async (id: string): Promise<ICar | null> => {
-    const result = await new CarODM().getById(id);
+  public findById = async (id: string): Promise<Car | null> => {
+    const response = await new CarODM().getById(id);
+    if (!response) return response;
+    const result = this.CarDom(response);
     return result;
   };
 }
