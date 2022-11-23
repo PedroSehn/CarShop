@@ -22,6 +22,13 @@ class CarService {
     const result = this.CarDom(response);
     return result;
   };
+
+  public updateCar = async (id: string, data: ICar): Promise<Car | null> => {
+    const response = await new CarODM().updateCar(id, data);
+    if (!response) return response;
+    const result = this.CarDom(response);
+    return result;
+  };
 }
 
 export default CarService;

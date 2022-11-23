@@ -10,5 +10,11 @@ const carRouter = express.Router();
 carRouter.post('/', (req, res) => new CarController().createCar(req, res));
 carRouter.get('/', (req, res) => new CarController().findAll(req, res));
 carRouter.get('/:id', validateID, carExists, (req, res) => new CarController().findById(req, res));
+carRouter.put(
+  '/:id', 
+  validateID, 
+  carExists,
+  (req, res) => new CarController().updateCar(req, res),
+);
 
 export default carRouter;
