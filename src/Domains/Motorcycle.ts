@@ -1,7 +1,7 @@
-import IMotocycle from '../Interfaces/IMotocycle';
+import IMotocycle from '../Interfaces/IMotorcycle';
 import Vehicle from './Vehicle';
 
-class Motocycle extends Vehicle {
+class Motorcycle extends Vehicle {
   private category: 'Street' | 'Custom' | 'Trail';
   private engineCapacity: number;
 
@@ -29,4 +29,4 @@ class Motocycle extends Vehicle {
   }
 }
 
-export default Motocycle;
+export default Motorcycle;

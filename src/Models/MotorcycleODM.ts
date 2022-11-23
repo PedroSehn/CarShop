@@ -1,12 +1,12 @@
 import { Model, Schema, model, models } from 'mongoose';
-import IMotocycle from '../Interfaces/IMotocycle';
+import IMotorcycle from '../Interfaces/IMotorcycle';
 
-class MotocycleODM {
+class MotorcycleODM {
   private _schema: Schema;
-  private _model: Model<IMotocycle>;
+  private _model: Model<IMotorcycle>;
 
   constructor() {
-    this._schema = new Schema<IMotocycle>({
+    this._schema = new Schema<IMotorcycle>({
       model: { type: String, required: true },
       year: { type: Number, required: true },
       color: { type: String, required: true },
@@ -18,9 +18,9 @@ class MotocycleODM {
     this._model = models.Motocycle || model('Motocycle', this._schema);
   }
 
-  public async create(motocycle: IMotocycle): Promise<IMotocycle> {
+  public async create(motocycle: IMotorcycle): Promise<IMotorcycle> {
     return this._model.create({ ...motocycle });
   }
 }
 
-export default MotocycleODM;
+export default MotorcycleODM;
