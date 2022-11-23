@@ -18,6 +18,7 @@ class CarController {
   public findById = async (rec: Request, res: Response) => {
     const { id } = rec.params;
     const result = await this._service.findById(id);
+    if (!result) return result;
     return res.status(200).json(result);
   };
 
